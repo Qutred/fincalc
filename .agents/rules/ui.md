@@ -1,0 +1,2 @@
+- All components must use shadcn/ui components.
+- Do not create custom components. If a suitable shadcn/ui component isn't installed, check the shadcn/ui registry and install it.
