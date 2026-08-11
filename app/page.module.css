@@ -1,20 +1,16 @@
 .page {
-  --background: #fafafa;
-  --foreground: #ffffff;
-  --text-primary: #0a0a0a;
-  --text-secondary: #5c6670;
-  --accent: #0e7490;
-  --accent-soft: #ecfeff;
-  --border: #e6e8eb;
-  --card-shadow: 0 1px 2px rgba(16, 24, 40, 0.04),
-    0 8px 24px rgba(16, 24, 40, 0.06);
-
   display: flex;
   flex: 1;
   flex-direction: column;
   align-items: center;
   font-family: var(--font-geist-sans);
-  background-color: var(--background);
+  background:
+    radial-gradient(
+      1100px 420px at 50% -120px,
+      var(--accent-teal-soft),
+      transparent 65%
+    ),
+    var(--background);
 }
 
 .main {
@@ -22,13 +18,15 @@
   flex: 1;
   flex-direction: column;
   width: 100%;
-  max-width: 960px;
-  padding: 24px 24px 64px;
+  max-width: 1120px;
+  padding: 24px 24px 96px;
 }
 
 .header {
   display: flex;
   align-items: center;
+  justify-content: space-between;
+  gap: 16px;
   padding: 8px 0;
 }
 
@@ -39,7 +37,7 @@
   font-size: 18px;
   font-weight: 600;
   letter-spacing: -0.02em;
-  color: var(--text-primary);
+  color: var(--foreground);
 }
 
 .brandMark {
@@ -48,10 +46,16 @@
   justify-content: center;
   width: 32px;
   height: 32px;
-  border-radius: 8px;
-  background: var(--text-primary);
-  color: var(--foreground);
+  border-radius: 9px;
+  background: linear-gradient(135deg, var(--accent-teal), var(--accent-amber));
+  color: #ffffff;
   font-size: 16px;
+}
+
+.brandTag {
+  display: none;
+  font-size: 13px;
+  color: var(--muted-foreground);
 }
 
 .hero {
@@ -60,97 +64,48 @@
   align-items: center;
   text-align: center;
   gap: 20px;
-  padding: 96px 0 72px;
+  padding: 96px 0 80px;
 }
 
 .eyebrow {
   font-size: 13px;
   font-weight: 600;
-  letter-spacing: 0.12em;
+  letter-spacing: 0.14em;
   text-transform: uppercase;
-  color: var(--accent);
+  color: var(--accent-teal);
 }
 
 .title {
-  max-width: 640px;
-  font-size: 56px;
+  max-width: 820px;
+  font-size: clamp(2.6rem, 6vw, 3.9rem);
   font-weight: 600;
-  line-height: 1.05;
+  line-height: 1.04;
   letter-spacing: -0.04em;
   text-wrap: balance;
-  color: var(--text-primary);
+  color: var(--foreground);
+}
+
+.accentTeal {
+  color: var(--accent-teal);
+}
+
+.accentAmber {
+  color: var(--accent-amber);
 }
 
 .subtitle {
-  max-width: 560px;
+  max-width: 620px;
   font-size: 18px;
-  line-height: 1.7;
-  text-wrap: balance;
-  color: var(--text-secondary);
-}
-
-.calculators {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-  gap: 24px;
-}
-
-.card {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  gap: 16px;
-  padding: 32px;
-  border: 1px solid var(--border);
-  border-radius: 16px;
-  background: var(--foreground);
-  box-shadow: var(--card-shadow);
-}
-
-.cardTitle {
-  font-size: 22px;
-  font-weight: 600;
-  letter-spacing: -0.02em;
-  color: var(--text-primary);
-}
-
-.cardDescription {
-  font-size: 15px;
   line-height: 1.65;
-  color: var(--text-secondary);
-}
-
-.featureList {
-  display: flex;
-  flex-direction: column;
-  gap: 8px;
-  padding-left: 20px;
-  font-size: 14px;
-  line-height: 1.5;
-  color: var(--text-primary);
-}
-
-.featureList li::marker {
-  color: var(--accent);
-}
-
-.comingSoon {
-  margin-top: auto;
-  padding: 6px 12px;
-  border-radius: 999px;
-  background: var(--accent-soft);
-  color: var(--accent);
-  font-size: 12px;
-  font-weight: 600;
-  letter-spacing: 0.04em;
-  text-transform: uppercase;
+  text-wrap: balance;
+  color: var(--muted-foreground);
 }
 
 .benefits {
   display: flex;
   flex-direction: column;
   gap: 32px;
-  padding: 96px 0 32px;
+  padding: 96px 0 0;
 }
 
 .benefitsHeading {
@@ -158,7 +113,7 @@
   font-weight: 600;
   letter-spacing: -0.03em;
   text-align: center;
-  color: var(--text-primary);
+  color: var(--foreground);
 }
 
 .benefitGrid {
@@ -170,23 +125,39 @@
 .benefit {
   display: flex;
   flex-direction: column;
-  gap: 8px;
+  gap: 12px;
   padding: 24px;
   border: 1px solid var(--border);
   border-radius: 12px;
-  background: var(--foreground);
+  background: var(--card);
+}
+
+.benefitIcon {
+  display: flex;
+  width: 32px;
+  height: 32px;
+  align-items: center;
+  justify-content: center;
+  border-radius: 8px;
+  background: var(--accent-teal-soft);
+  color: var(--accent-teal);
+}
+
+.benefitIconSvg {
+  width: 16px;
+  height: 16px;
 }
 
 .benefitTitle {
   font-size: 16px;
   font-weight: 600;
-  color: var(--text-primary);
+  color: var(--foreground);
 }
 
 .benefitDescription {
   font-size: 14px;
   line-height: 1.6;
-  color: var(--text-secondary);
+  color: var(--muted-foreground);
 }
 
 .footer {
@@ -196,16 +167,18 @@
   padding: 24px;
   border-top: 1px solid var(--border);
   font-size: 13px;
-  color: var(--text-secondary);
+  color: var(--muted-foreground);
+}
+
+@media (min-width: 768px) {
+  .brandTag {
+    display: block;
+  }
 }
 
 @media (max-width: 640px) {
   .hero {
     padding: 72px 0 56px;
-  }
-
-  .title {
-    font-size: 40px;
   }
 
   .subtitle {
@@ -217,16 +190,8 @@
   }
 }
 
-@media (prefers-color-scheme: dark) {
+@media (prefers-reduced-motion: reduce) {
   .page {
-    --background: #0a0a0a;
-    --foreground: #111113;
-    --text-primary: #ededed;
-    --text-secondary: #9ca3af;
-    --accent: #22d3ee;
-    --accent-soft: rgba(34, 211, 238, 0.12);
-    --border: #1f1f23;
-    --card-shadow: 0 1px 2px rgba(0, 0, 0, 0.4),
-      0 8px 24px rgba(0, 0, 0, 0.3);
+    background: var(--background);
   }
 }
